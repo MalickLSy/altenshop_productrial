@@ -1,0 +1,63 @@
+{
+  "users": [
+    {
+      "username": "admin",
+      "firstname": "Admin",
+      "email": "admin@admin.com",
+      "password": "admin2025"
+    },
+    {
+      "username": "john",
+      "firstname": "John",
+      "email": "john@example.com",
+      "password": "password123"
+    },
+    {
+      "username": "sarah",
+      "firstname": "Sarah",
+      "email": "sarah@example.com",
+      "password": "mypassword"
+    }
+  ],
+  "products": [
+    {
+      "code": "P001",
+      "name": "Chaussures de sport",
+      "description": "Chaussures de sport confortables pour le running.",
+      "image": "shoes.png",
+      "category": "Sport",
+      "price": 59.99,
+      "quantity": 25,
+      "internalReference": "REF001",
+      "shellId": 1,
+      "inventoryStatus": "INSTOCK",
+      "rating": 4.5
+    },
+    {
+      "code": "P002",
+      "name": "T-shirt coton",
+      "description": "T-shirt 100% coton bio.",
+      "image": "tshirt.png",
+      "category": "Vêtements",
+      "price": 19.99,
+      "quantity": 100,
+      "internalReference": "REF002",
+      "shellId": 2,
+      "inventoryStatus": "INSTOCK",
+      "rating": 4.2
+    },
+    {
+      "code": "P003",
+      "name": "Sac à dos",
+      "description": "Sac à dos robuste avec plusieurs compartiments.",
+      "image": "backpack.png",
+      "category": "Accessoires",
+      "price": 39.99,
+      "quantity": 50,
+      "internalReference": "REF003",
+      "shellId": 3,
+      "inventoryStatus": "LOWSTOCK",
+      "rating": 4.0
+    }
+  ]
+}
