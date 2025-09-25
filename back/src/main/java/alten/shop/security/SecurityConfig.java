@@ -32,9 +32,10 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form.disable())
-                .httpBasic(basic -> basic.disable()) 
+                .httpBasic(basic -> basic.disable())
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
+        // Allow H2 console to render in frames
         http.headers(headers -> headers.frameOptions(frame -> frame.disable()));
 
         return http.build();

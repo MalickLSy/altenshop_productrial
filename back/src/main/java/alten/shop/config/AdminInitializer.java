@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+
 @Configuration
 public class AdminInitializer {
 
@@ -15,11 +16,12 @@ public class AdminInitializer {
     CommandLineRunner initAdmin(UserRepository userRepo, PasswordEncoder encoder) {
         return args -> {
             userRepo.findByEmail("admins@admin.com").orElseGet(() -> {
-                User admin = new User();
-                admin.setUsername("admin");
-                admin.setFirstname("Admin");
-                admin.setEmail("admins@admin.com");
-                admin.setPassword(encoder.encode("admin2025"));
+               final User admin = User.builder()
+                        .username("admin")
+                        .firstname("Admin")
+                        .email("admins@admin.com")
+                        .password(encoder.encode("admin2025"))
+                        .build();
                 return userRepo.save(admin);
             });
         };

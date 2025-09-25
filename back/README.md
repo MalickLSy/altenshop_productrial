@@ -97,14 +97,14 @@ Seul l’utilisateur **admin@admin.com** peut créer, modifier ou supprimer des 
 ##  Gestion du Panier
 
 ### Ajouter un produit au panier
-**POST** `http://localhost:8083/cart/1`
+**POST** `http://localhost:8083/user/cart/1`
 
 ---
 
 ##  Gestion de la Wishlist
 
 ### Ajouter un produit à la wishlist
-**POST** `http://localhost:8083/wishlist/2`
+**POST** `http://localhost:8083/user/wishlist/2`
 
 ---  ---------------------------------------
 

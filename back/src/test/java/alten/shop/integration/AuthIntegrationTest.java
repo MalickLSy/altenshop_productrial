@@ -1,7 +1,7 @@
 package alten.shop.integration;
 
-
 import alten.shop.dto.RegisterRequest;
+import alten.shop.model.User;
 import alten.shop.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +23,20 @@ public class AuthIntegrationTest {
     @Autowired
     private UserRepository userRepo;
 
+
+    @Test
+    void save_and_findByEmail() {
+        User user = User.builder()
+                .username("bob")
+                .firstname("Bob Marley")
+                .email("bob@music.com")
+                .password("secret")
+                .build();
+
+        userRepo.save(user);
+
+        assertThat(userRepo.findByEmail("bob@music.com")).isPresent();
+    }
     @Test
     void register_and_user_saved() {
         var req = new RegisterRequest("admin","Admin","admin@admin.com","admin2025");

@@ -28,11 +28,12 @@ public class AuthController {
         if (userService.findByEmail(r.email()).isPresent()) {
             return ResponseEntity.badRequest().body("Email already used");
         }
-        User u = new User();
-        u.setUsername(r.username());
-        u.setFirstname(r.firstname());
-        u.setEmail(r.email());
-        u.setPassword(r.password());
+        User u = User.builder()
+                .username(r.username())
+                .firstname(r.firstname())
+                .email(r.email())
+                .password(r.password())
+                .build();
         userService.createUser(u);
         return ResponseEntity.ok("Compte créé");
     }

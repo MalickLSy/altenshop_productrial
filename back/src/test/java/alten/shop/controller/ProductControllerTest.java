@@ -7,20 +7,19 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.http.ResponseEntity;
 
-
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.any;
 
 public class ProductControllerTest {
 
     @Test
     void getOne_returnsProduct() {
         ProductRepository repo = Mockito.mock(ProductRepository.class);
-        Product p = new Product();
-        p.setId(1L);
-        p.setName("Test");
+        Product p = Product.builder()
+                .id(1L)
+                .name("Test")
+                .build();
         Mockito.when(repo.findById(1L)).thenReturn(Optional.of(p));
         ProductService service = new ProductService(repo);
         ProductController controller = new ProductController(service);
@@ -29,6 +28,8 @@ public class ProductControllerTest {
         assertThat(res.getBody()).isNotNull();
         assertThat(res.getBody().getName()).isEqualTo("Test");
     }
+
+
 
 
 }
